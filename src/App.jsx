@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       
-      <h1>This simple redux applications when I created this  </h1>
+      <h1 className='text-2xl'>This simple redux applications when I created this  </h1>
       <div>
         <Counter></Counter>
         
