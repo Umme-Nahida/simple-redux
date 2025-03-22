@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Button = () => {
+const Button = ({children, danger, type, handler}) => {
+
+    const style = type === danger ? "bg-red-400 text-white py-3 px-5 rounded" : "bg-blue-400 text-white py-3 px-5 rounded"
+
     return (
-        <div>
-            this is button
-        </div>
+        <button className={style} onClick={handler}>
+            {children}
+        </button>
     );
 };
 
