@@ -12,8 +12,7 @@ const Counter = () => {
     }
 
     return (
-        <div>
-            this is  
+        <div className='bg-gray-100 text-center  '>
             <h1>count {count} </h1>
 
             <button onClick={handleIncrement}>Increment</button> 
