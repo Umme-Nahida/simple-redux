@@ -15,7 +15,36 @@ const initialCounter =[
 
 function App() {
   const [counters,setCounters] = useState(initialCounter)
-  console.log(counters)
+
+  const handleIncrement = (id)=>{
+    console.log(id)
+    const updateCounter = counters.map(counter =>{
+       if(counter.id === id){
+        return {
+          ...counter,
+          value: counter.value + 1
+        }
+       }
+       return counter
+    })
+
+    setCounters(updateCounter);
+  }
+
+  const handleDecrement = (id)=>{
+    console.log(id)
+    const updateCounter = counters.map(counter =>{
+       if(counter.id === id){
+        return {
+          ...counter,
+          value: counter.value - 1
+        }
+       }
+       return counter
+    })
+
+    setCounters(updateCounter);
+  }
 
   return (
     <>
@@ -23,8 +52,11 @@ function App() {
       <div className='w-screen h-screen p-10'>
       <h1 className='text-2xl max-w-md mx-auto text-center font-bold'>This simple redux applications when I created this  </h1>
       <div className='max-w-md mx-auto mt-10 space-y-5'>
-        <Counter></Counter>
-        <Counter></Counter>
+        {
+          counters.map(counter=>(
+            <Counter key={counter.id} count={counter.value} onIncrement={()=>handleIncrement(counter.id)} onDecrement={()=>handleDecrement(counter.id)}></Counter>
+          ))
+        }
         <Stats totalCount={10} />
       </div>
       </div>
