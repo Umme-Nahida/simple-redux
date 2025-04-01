@@ -1,22 +1,23 @@
-import React, { useState } from 'react';
+import Button from '../Buttons/Button';
 
-const Counter = () => {
-    const [count,setCount] = useState(0)
-
-    const handleIncrement = ()=>{
-    setCount((preCount)=> preCount + 1)
-    }
-
-    const handleDecrement = ()=>{
-    setCount((preCount)=> preCount - 1)
-    }
+const Counter = ({count,onIncrement,onDecrement}) => {
+    
 
     return (
-        <div className='bg-gray-100 text-center  '>
+        <div className='bg-gray-100 text-center p-5 space-y-5 '>
             <h1>count {count} </h1>
 
-            <button onClick={handleIncrement}>Increment</button> 
-            <button onClick={handleDecrement}>Decrement</button> 
+            <div className='flex items-center justify-center gap-3'>
+            <Button handler={onIncrement} >
+                Increment
+            </Button>
+
+            <Button type={'danger'} handler={onDecrement} >
+                Decrement
+            </Button>
+            </div>
+
+           
         </div>
     );
 };
